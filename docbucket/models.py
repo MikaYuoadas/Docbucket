@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 
-import tagging
+import tagging.registry
 from whoosh import fields, index
 
 from .pdf import Pdf
@@ -34,7 +34,7 @@ class Document(models.Model):
         self.save()
 
 
-tagging.register(Document)
+tagging.registry.register(Document)
 
 
 DOCUMENT_WHOOSH_SCHEMA = fields.Schema(title=fields.TEXT(stored=True),
