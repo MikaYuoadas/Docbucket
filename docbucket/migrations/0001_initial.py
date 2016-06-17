@@ -1,38 +1,24 @@
-# -*- coding: utf-8 -*-
-import datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import migrations, models
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Document'
-        db.create_table('docbucket_document', (
-            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('title', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('document', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
-            ('created_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-            ('last_access_on', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
-        ))
-        db.send_create_signal('docbucket', ['Document'])
+    initial = True
 
+    dependencies = [
+    ]
 
-    def backwards(self, orm):
-        # Deleting model 'Document'
-        db.delete_table('docbucket_document')
-
-
-    models = {
-        'docbucket.document': {
-            'Meta': {'object_name': 'Document'},
-            'created_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'document': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
-            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'last_access_on': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '200'})
-        }
-    }
-
-    complete_apps = ['docbucket']
+    operations = [
+        migrations.CreateModel(
+            name='Document',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('title', models.CharField(max_length=200, verbose_name='Title')),
+                ('document', models.FileField(upload_to=b'documents')),
+                ('created_on', models.DateTimeField(auto_now_add=True)),
+                ('last_access_on', models.DateTimeField(auto_now_add=True)),
+            ],
+        ),
+    ]

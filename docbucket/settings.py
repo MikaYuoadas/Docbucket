@@ -131,7 +131,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tagging',
     'docbucket',
-    'south',
 )
 
 if DEBUG:
