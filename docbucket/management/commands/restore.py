@@ -31,4 +31,3 @@ class Command(BaseCommand):
             sys.stdout.write('.')
             sys.stdout.flush()
         print '\nAll done.'
-
