@@ -27,11 +27,11 @@ $(function() {
 
 {% block body %}
 
-<h2><a href="#" data-type="text" data-name="title" data-url="{% url 'ajax_document' document.id %}" data-inputclass="span10" class="editable"> {{ document.title }}</a></h2>
+<h2><a href="#" data-type="text" data-name="title" data-url="{% url 'ajax_document' document.id %}" data-inputclass="col-md-10" class="editable"> {{ document.title }}</a></h2>
 
 <div class="row">
 
-    <div class="span5">
+    <div class="col-md-5">
         <table class="table table-bordered table-striped">
             <tr>
                 <th>{% trans "Created" %}</th>
@@ -41,7 +41,7 @@ $(function() {
                 <th>{% trans "Tags" %}</th>
                 <td>
                     <div class="tags">
-                        <input autocomplete="off" data-items="6" data-provide="typeahead" type="text" name="tags" placeholder="Add" class="input-mini" data-original-title="" />
+                        <input autocomplete="off" data-items="6" data-provide="typeahead" type="text" name="tags" placeholder="Add" class="form-control" data-original-title="" />
                     </div>
 
 
@@ -56,15 +56,15 @@ $(function() {
             <tr>
                 <td colspan="2">
                     <div class="text-center">
-                        <a href="{{ MEDIA_URL }}{{ document.document }}" class="btn btn-large btn-primary">{% trans "Download" %} <small>({{ document.document.size|filesizeformat }})</small></a>
+                        <a href="{{ MEDIA_URL }}{{ document.document }}" class="btn btn-lg btn-primary">{% trans "Download" %} <small>({{ document.document.size|filesizeformat }})</small></a>
                     </div>
                 </td>
             </tr>
         </table>
     </div>
 
-    <div class="span7 text-center">
-        <img src="{% url 'thumbnail-document' document.pk %}?size=600x740" class="img-polaroid" alt="Document picture"/>
+    <div class="col-md-7 text-center">
+        <img src="{% url 'thumbnail-document' document.pk %}?size=600x740" class="img-thumbnail" alt="Document picture"/>
     </div>
 
 </div>
