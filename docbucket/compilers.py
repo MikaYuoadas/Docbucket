@@ -5,7 +5,7 @@ from subprocess import Popen
 
 from django import forms
 from django.conf import settings
-from django.utils.importlib import import_module
+from importlib import import_module
 from django.core.exceptions import ImproperlyConfigured
 
 import tagging.forms
