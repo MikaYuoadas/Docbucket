@@ -10,8 +10,8 @@
     {% include "document.html" %}
 {% endfor %}
 
-<div class="pagination pagination-centered">
-    <ul>
+<nav class="text-centered">
+    <ul class="pagination">
     {% if paginator.has_previous %}
         <li><a href="?page={{ paginator.previous_page_number }}">{% trans "Prev" %}</a></li>
     {% else %}
@@ -32,5 +32,5 @@
         <li class="disabled"><a href="#">{% trans "Next" %}</a></li>
     {% endif %}
     </ul>
-</div>
+</nav>
 {% endblock %}
